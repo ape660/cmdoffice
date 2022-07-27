@@ -1,4 +1,4 @@
-hello: main.c cmdoffice.c cmdpipeline.c officeprint.c
-	@gcc main.c cmdoffice.c cmdpipeline.c officeprint.c -lpthread -o main
+main: main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c
+	@gcc -g main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c -lpthread -o main
 clean:
-	rm -f main
+	@rm -f main
