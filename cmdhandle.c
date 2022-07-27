@@ -1,6 +1,6 @@
 #include "cmdhandle.h"
 
-const char* cmd_prefix = "cmd-";//命令前缀
+const char* cmd_prefix = "cmdo-";//命令前缀
 const char* sys_path = "/bin/";//软链接根路径
 const char* divide = "-";//分隔符，仅允许一个字符。这里是为了运算方便
 
@@ -48,7 +48,7 @@ int create_commands()
 {
     char cmd_path[PATHNAME_MAX];
     char current_path[PATHNAME_MAX];
-    char current_datetime[20];
+    char current_datetime[30];
     char pid[20];
     snprintf(pid, sizeof(pid), "%d", app_pid);
     get_current_dir(current_path);
@@ -100,7 +100,7 @@ void get_current_time(char *str_time)
     struct tm *p;
     p = gmtime(&timep);
 
-    snprintf(str_time, 20, "%d-%d-%d_%d:%d:%d", 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, 8 + p->tm_hour, p->tm_min, p->tm_sec);
+    snprintf(str_time, 30, "%d月%d日%d时%d分%d秒", 1 + p->tm_mon, p->tm_mday, 8 + p->tm_hour, p->tm_min, p->tm_sec);
 }
 
 //删除命令
