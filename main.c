@@ -17,11 +17,9 @@ int main(int argc, char* argv[])
     office_register_service(service_ptr);
     
     office_register_genneral_cmd_dump();
+    office_register_genneral_cmd_recovery();
     office_work(argc, argv);
-
-    sleep(20);
-
-    office_quit();
+    
 }
 
 

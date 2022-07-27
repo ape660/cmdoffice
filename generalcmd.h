@@ -9,6 +9,8 @@
 //打开通用命令dump
 void office_register_genneral_cmd_dump();
 
+//通用命令recovery
+void office_register_genneral_cmd_recovery();
 
 
 

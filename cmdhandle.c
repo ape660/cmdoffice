@@ -160,7 +160,7 @@ void* thread_listen_msg(void* argv)
         int ret = office_recv_document(&doc);
         if(ret != -1)
         {
-            printf("receive: %d\n", doc.cmd_type);
+            
             if(sptrs[doc.cmd_type] != NULL)
             {
                 sptrs[doc.cmd_type](doc);
