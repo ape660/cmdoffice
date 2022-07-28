@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 27 23:07:55 2022
+# Make data base, printed on Wed Jul 27 23:14:49 2022
 
 # Variables
 
@@ -223,7 +225,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2611
+VSCODE_PID = 3441
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=60f6555f3a20c8871b4d26ce62e22788
 # variable set hash-table stats:
@@ -277,8 +279,6 @@ msgtool.c:
 #  File has not been updated.
 
  
-make: *** No rule to make target 'all'.  Stop.
-
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
@@ -332,6 +332,6 @@ main: main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c sockettool.c
 # strcache performance: lookups = 37 / hit rate = 35%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=1/37=3%
-# Finished Make data base on Wed Jul 27 23:07:55 2022
+# Finished Make data base on Wed Jul 27 23:14:49 2022
 
  
