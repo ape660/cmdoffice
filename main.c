@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
     office_register_genneral_cmd_dump();
     office_register_genneral_cmd_recovery();
     office_register_genneral_cmd_multiple();
+    office_register_genneral_cmd_2file();
     
     office_work(argc, argv);
     

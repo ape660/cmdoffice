@@ -3,10 +3,12 @@
 char* general_cmd_dump = "dump";
 char* general_cmd_recovery = "recovery";
 char* general_cmd_multiple = "multiple";
+char* general_cmd_2file = "2file";
 
 void sptr_of_dump(struct document doc);
 void sptr_of_recovery(struct document doc);
 void sptr_of_multiple(struct document doc);
+void sptr_of_2file(struct document doc);
 
 void cptr_of_multiple(int argc, char* argv[]);
 
@@ -92,4 +94,24 @@ void cptr_of_multiple(int argc, char* argv[])
     }
 
     close(client_fd); 
+}
+
+void office_register_genneral_cmd_2file()
+{
+    office_register_cmd(general_cmd_2file, sptr_of_2file, NULL);
+}
+
+void sptr_of_2file(struct document doc)
+{
+
+    char file_path[PATHNAME_MAX];
+    office_get_argvi(doc.argv, file_path, 1);
+    printf("get path: %s", file_path);
+    int fd = open(file_path, O_WRONLY|O_CREAT, 00644);
+    
+    if(fd < 0){
+        perror("");
+        return ;
+    }
+    dup2(fd, STDOUT_FILENO); 
 }

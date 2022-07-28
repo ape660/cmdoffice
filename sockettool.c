@@ -129,10 +129,10 @@ int get_available_port()
         }
         struct sockaddr_in sockaddr;
         int len = sizeof(sockaddr);
-        ret = getsockname(sock, (struct sockaddr *) &sockaddr, (socklen_t *) &len); // this function now not be hooked
+        ret = getsockname(sock, (struct sockaddr *) &sockaddr, (socklen_t *) &len); 
 
         if (0 != ret) {
-           // LOGE("upn, getsockname:%d, %s", errno, strerror(errno))
+           
             break;
         }
         port = ntohs(sockaddr.sin_port); // 获取端口号
