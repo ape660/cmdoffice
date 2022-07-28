@@ -7,6 +7,7 @@
 #include "cmdhandle.h"
 #include "msgtool.h"
 #include "sockettool.h"
+#include "officeio.h"
 
 
 //启动调试工具

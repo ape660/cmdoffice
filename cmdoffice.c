@@ -8,14 +8,25 @@ int office_work(int argc, char* argv[])
     app_proc_type = cmd_index;
     if(cmd_index == -1)//服务程序
     {
-        printf("service proc\n");
+
         //创建命令
-        create_commands();
+        if(create_commands()< 0)
+        {
+            office_error("创建命令软连接失败");
+            return -1;
+        }else
+        {
+            office_info("创建命令软链接成功");
+        }
         //监听消息队列
         pthread_t msg_thread;
         int ret = pthread_create(&msg_thread, NULL, thread_listen_msg, NULL);
-        if(ret != 0) return -1;
-
+        if(ret != 0)
+        {
+            office_error("监听消息队列线程创建失败");
+            return -1;
+        }
+        
         if(app_service_ptr != NULL)//运行服务程序
         {
             app_service_ptr(argc, argv);
@@ -23,7 +34,6 @@ int office_work(int argc, char* argv[])
 
     }else
     {
-        printf("command proc\n");
         tell_service_proc_what_cmd_is(cmd_index, argc, argv);
         if(cptres[cmd_index] != NULL)
         {

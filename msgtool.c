@@ -28,7 +28,7 @@ int office_send_doccument
             strcat(doc.argv, " ");
         }
     }
-    printf("send: %s", doc.argv);
+
     //向队列发送数据
     if(msgsnd(msgid, (void*)&doc, MSGMAX, 0) == -1)
     {
@@ -92,7 +92,6 @@ void office_get_argvi(char *argv, char* rec, int index)
     }
 
     if(r<0) r =len;
-    printf("l: %d, r:%d\n", l, r);
 
     strncpy(rec, argv+l, r-l);
 

@@ -29,9 +29,9 @@ void sptr_of_dump(struct document doc)
     if(fd < 0){
         return ;
     }
-
+    office_info("消息输出将重定向");
     dup2(fd, STDOUT_FILENO); 
-
+    office_info("消息重定向至此");
 }
 
 void office_register_genneral_cmd_recovery()
@@ -47,7 +47,9 @@ void sptr_of_recovery(struct document doc){
 
         return ;
     }
+    office_info("消息输出恢复");
     dup2(fd, STDOUT_FILENO); 
+    office_info("消息输出已恢复");
 }
 
 
@@ -65,6 +67,7 @@ void sptr_of_multiple(struct document doc)
     }
     
     sleep(1);
+    office_info("消息将重定向");
     dup2(first_socket, STDOUT_FILENO);
     
     //发送端口给连接上的客户端
@@ -106,12 +109,13 @@ void sptr_of_2file(struct document doc)
 
     char file_path[PATHNAME_MAX];
     office_get_argvi(doc.argv, file_path, 1);
-    printf("get path: %s", file_path);
+
     int fd = open(file_path, O_WRONLY|O_CREAT, 00644);
     
     if(fd < 0){
         perror("");
         return ;
     }
+    office_info("信息将重定向到文件");
     dup2(fd, STDOUT_FILENO); 
 }
