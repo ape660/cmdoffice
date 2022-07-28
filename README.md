@@ -7,6 +7,8 @@ cmdoffice(Command Office)是一个由c语言编写的命令行辅助调试工具
 + 提供通用命令：单客户端重定向dump、重定向恢复recoery、多客户端重定向multiple、文件重定向2file
 + 支持注册自定义命令
 + 允许服务进程同时运行
+
+它允许通过命令的形式执行特定的操作，方便快捷。库本身提供了良好的扩展性，只需注册相关的操作即可。
 ## 应用截图
 在系统/bin目录下生成的命令<br>
 ![image](https://user-images.githubusercontent.com/48158080/181439230-aea1bf94-3a0b-468b-9ee2-ad3a389d6295.png)
