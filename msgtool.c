@@ -19,7 +19,7 @@ int office_send_doccument
     doc.msg_type = pid;//指定目标程序   
     doc.cmd_type = type;
     doc.self_pid = self_pid;
-    strcpy(doc.tty_path, ttyname(1));
+    strcpy(doc.tty_path, tty);
     
     for(int i=0;i<ARGV_SIZE && i<argc ;i++)
     {
@@ -30,8 +30,13 @@ int office_send_doccument
     //向队列发送数据
     if(msgsnd(msgid, (void*)&doc, sizeof(doc), 0) == -1)
     {
-        perror("");
         return -1;
+    }
+
+    //释放内存
+    for(int i=0;i<ARGV_SIZE && i<argc ;i++)
+    {
+        free(doc.argv[i]);  
     }
 
     return 0;

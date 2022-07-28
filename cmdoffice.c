@@ -3,8 +3,9 @@
 int office_work(int argc, char* argv[])
 {
     //初始化应用信息
-    app_info_init(argv[0]);
+    app_init(argv[0]);
     int cmd_index = get_command_index(argv[0]);
+    app_proc_type = cmd_index;
     if(cmd_index == -1)//服务程序
     {
         printf("service proc\n");
@@ -53,4 +54,5 @@ int office_register_service(cmd_ptr service_ptr)
 void office_quit()
 {
     remove_commands();
+    close_distribution_server();
 }

@@ -6,7 +6,7 @@
 
 #include "cmdhandle.h"
 #include "msgtool.h"
-
+#include "sockettool.h"
 
 
 //启动调试工具

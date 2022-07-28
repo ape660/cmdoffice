@@ -22,9 +22,10 @@ extern cmd_ptr cptres[COMMAND_MAX];
 extern cmd_ptr app_service_ptr;
 
 extern char app_tty_path[PATHNAME_MAX];
+extern int app_proc_type;
 
 //初始化应用信息
-void app_info_init(char* name);
+void app_init(char* name);
 
 //获取当前应用名
 void get_app_name(char* name);

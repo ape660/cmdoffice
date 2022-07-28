@@ -1,4 +1,8 @@
+#include <signal.h>
+
 #include "cmdhandle.h"
+
+extern void office_quit();
 
 const char* cmd_prefix = "cmdo-";//命令前缀
 const char* sys_path = "/bin/";//软链接根路径
@@ -7,6 +11,7 @@ const char* divide = "-";//分隔符，仅允许一个字符。这里是为了�
 int app_pid;
 char app_name[PATHNAME_MAX];
 char app_tty_path[PATHNAME_MAX];
+int app_proc_type = -1;//进程的类型
 
 
 int command_count = 0;
@@ -16,15 +21,17 @@ cmd_ptr cptres[COMMAND_MAX];
 cmd_ptr app_service_ptr;
 char* generated_cmd_path[PATHNAME_MAX];//实际生成的命令，用于删除
 
+
 //监听队列
 void* thread_listen_msg(void* argv);
 
 
-void app_info_init(char* name)
+void app_init(char* name)
 {
     app_pid = getpid();
     get_app_name(name);
     strcpy(app_tty_path, ttyname(1));
+
 }
 
 void get_app_name(char* name)
@@ -146,7 +153,7 @@ void tell_service_proc_what_cmd_is(int type, int argc, char* argv[])
         }
     }
     int pid = atoi(argv[0] + divide_index +1);
-    printf("pid: %d cmd_index: %d\n", pid, type);
+
 
     office_send_doccument(pid, type, app_pid, ttyname(1), argc, argv);
 }
