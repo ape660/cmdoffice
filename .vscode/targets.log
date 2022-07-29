@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 28 19:13:14 2022
+# Make data base, printed on Thu Jul 28 20:03:38 2022
 
 # Variables
 
@@ -199,11 +201,11 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a74a9dbf_4ca3_4108_8f60_f2e53629a008
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c8a33da1_90b8_46b0_ab27_5cfd6b8413e4
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.100
+GNOME_TERMINAL_SERVICE = :1.947
 # default
 SUFFIXES := 
 # environment
@@ -223,7 +225,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2939
+VSCODE_PID = 8196
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
 # variable set hash-table stats:
@@ -277,8 +279,6 @@ GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
  
-make: *** No rule to make target 'all'.  Stop.
-
 #  File has been updated.
 #  Failed to be updated.
 
@@ -296,6 +296,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 29 / hit rate = 10%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Thu Jul 28 19:13:14 2022
+# Finished Make data base on Thu Jul 28 20:03:38 2022
 
  
