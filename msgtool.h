@@ -26,10 +26,7 @@ struct document
 };
 
 //用消息队列发送一个document
-int office_send_doccument
-(
-    int pid, int type,  int argc, char* argv[]
-);
+int office_send_doccument(int pid, int type,  int argc, char* argv[]);
 
 //接收消息队列中的消息
 int office_recv_document(struct document *doc);

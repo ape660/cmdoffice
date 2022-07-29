@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
 {
     office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
     office_register_service(service_ptr);
+    office_register_genneral_cmd_dump(); //通用命令dump
     office_work(argc, argv);    
 }
 
