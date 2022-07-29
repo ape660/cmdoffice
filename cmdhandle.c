@@ -158,7 +158,7 @@ void tell_service_proc_what_cmd_is(int type, int argc, char* argv[])
     int pid = atoi(argv[0] + divide_index +1);
 
 
-    office_send_doccument(pid, type, app_pid, ttyname(1), argc, argv);
+    office_send_doccument(pid, type, argc, argv);
 }
 
 void* thread_listen_msg(void* argv)
@@ -170,7 +170,7 @@ void* thread_listen_msg(void* argv)
         int ret = office_recv_document(&doc);
         if(ret != -1)
         {
-            if(sptrs[doc.cmd_type] != NULL)
+            if(sptrs[doc.type] != NULL)
             {
                 pthread_t sptr_thread;
                 pthread_create(&sptr_thread, NULL, thread_deal_with_sptr, (void*)&doc);
@@ -182,5 +182,5 @@ void* thread_listen_msg(void* argv)
 void* thread_deal_with_sptr(void* argv)
 {
     struct document doc = *(struct document*)argv;
-    sptrs[doc.cmd_type](doc);
+    sptrs[doc.type](doc);
 }

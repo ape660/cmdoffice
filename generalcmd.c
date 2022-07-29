@@ -71,14 +71,14 @@ void sptr_of_multiple(struct document doc)
     dup2(first_socket, STDOUT_FILENO);
     
     //发送端口给连接上的客户端
-    office_send_doccument(pid, cur_port, 0, "",0 , NULL);  
+    office_send_doccument(pid, cur_port, 0, NULL);  
 }
 
 void cptr_of_multiple(int argc, char* argv[])
 {
     struct document doc;
     office_recv_document(&doc);
-    int client_fd  = create_tcp_client(doc.cmd_type);
+    int client_fd  = create_tcp_client(doc.type);
     char buf[BUFSIZ];//定义一个数组用来存储接收到的数据 
     int ret; 
     while (1) 

@@ -4,7 +4,7 @@ const int msg_key =2233;
 
 int office_send_doccument
 (
-    int pid, int type, int self_pid, char tty[TTY_PATH_SIZE], int argc, char* argv[ARGV_SIZE]
+    int pid, int type,  int argc, char* argv[]
 )
 {
     //访问消息队列（不存在则创建）
@@ -17,9 +17,9 @@ int office_send_doccument
     //打包数据	
     struct document doc;
     doc.msg_type = pid;//指定目标程序   
-    doc.cmd_type = type;
-    doc.self_pid = self_pid;
-    strcpy(doc.tty_path, tty);
+    doc.type = type;
+    doc.self_pid = getpid();
+    strcpy(doc.tty_path, ttyname(1));
     for(int i=0;i<argc ;i++)
     {
         strcat(doc.argv, argv[i]);

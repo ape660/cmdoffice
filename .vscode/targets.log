@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 28 18:19:10 2022
+# Make data base, printed on Thu Jul 28 19:13:14 2022
 
 # Variables
 
@@ -50,8 +48,8 @@ VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_langu
 JOURNAL_STREAM = 8:58502
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'makefile', line 1)
-MAKEFILE_LIST :=  makefile
+# makefile
+MAKEFILE_LIST := 
 # automatic
 @F = $(notdir $@)
 # environment
@@ -157,7 +155,7 @@ USER = cmd
 # environment
 LC_MONETARY = zh_CN.UTF-8
 # makefile
-.DEFAULT_GOAL := main
+.DEFAULT_GOAL := 
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
@@ -229,7 +227,7 @@ VSCODE_PID = 2939
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
 # variable set hash-table stats:
-# Load=108/1024=11%, Rehash=0, Collisions=17/133=13%
+# Load=108/1024=11%, Rehash=0, Collisions=17/130=13%
 
 # Pattern-specific Variable Values
 
@@ -237,21 +235,15 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901
 
 # Directories
 
-# . (device 2053, inode 533286): 20 files, no impossibilities.
+# . (device 2053, inode 533286): 18 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
-
-# Not a target:
-sockettool.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 # Not a target:
 all:
@@ -261,48 +253,18 @@ all:
 #  File has not been updated.
 
 # Not a target:
-main.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-officeio.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-generalcmd.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
- 
-# Not a target:
-msgtool.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+Makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-28 02:24:19.549417943
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-cmdoffice.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-cmdhandle.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Failed to be updated.
 
 # Not a target:
 .DEFAULT:
@@ -310,34 +272,30 @@ cmdhandle.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-clean:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 4):
-	@rm -f main
+# Not a target:
+GNUmakefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+ 
+make: *** No rule to make target 'all'.  Stop.
 
-main: main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c sockettool.c officeio.c
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 2):
-	@gcc -g main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c  sockettool.c officeio.c -lpthread -o main
+#  File has been updated.
+#  Failed to be updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/30=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 252 B / avg = 9 B
-# current buf: size = 8162 B / used = 252 B / count = 26 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 263 B / avg = 10 B
+# current buf: size = 8162 B / used = 263 B / count = 26 / avg = 10 B
 
-# strcache performance: lookups = 40 / hit rate = 35%
+# strcache performance: lookups = 29 / hit rate = 10%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/40=2%
-# Finished Make data base on Thu Jul 28 18:19:10 2022
+# Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
+# Finished Make data base on Thu Jul 28 19:13:14 2022
 
  

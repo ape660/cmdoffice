@@ -12,13 +12,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 extern const int msg_key;
 
 struct document
 {
     long int msg_type;
 
-    int cmd_type;
+    int type;
     int self_pid;
     char tty_path[TTY_PATH_SIZE];
     char argv[MSGMAX - 2*sizeof(int) - TTY_PATH_SIZE];
@@ -27,13 +28,13 @@ struct document
 //用消息队列发送一个document
 int office_send_doccument
 (
-    int pid, int type, int self_pid, char tty[TTY_PATH_SIZE], int argc, char* argv[ARGV_SIZE]
+    int pid, int type,  int argc, char* argv[]
 );
 
 //接收消息队列中的消息
 int office_recv_document(struct document *doc);
 
-//由于参数被合成为空格连接的数组，因此需要将某个参数提取出来
+//由于参数被合成为空格连接的数组，因此需要将某个参数提取出来。索引从0开始
 void office_get_argvi(char *argv, char* rec, int index);
 
 
