@@ -107,7 +107,8 @@ typedef void (*serv_ptr)(struct document doc);
 typedef void (*cmd_ptr)(int argc, char* argv[]);
 ``` 
 要注册一个自定义命令，需要定义该命令的处理函数和命令进程要运行的代码段。如果有一方无需作处理，传入NULL被允许。他们的调用过程见下图<br>
-![image](https://user-images.githubusercontent.com/48158080/181438340-47260e38-c9fe-4d68-a6e5-d7c5f6bbb1e9.png)
+![image](https://user-images.githubusercontent.com/48158080/181724764-4c52403f-fc38-4bdf-9d1c-baa192a7adaf.png)
+
 <br>服务进程中服务程序和命令处理程序并发执行。处理程序接收到命令后，在全局变量寻找命令入口，并发执行。命令程序发送完命令后执行自己的程序，用来接收返回参数等。
 
 ## 参数收发接口说明
