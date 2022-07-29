@@ -8,7 +8,7 @@ cmdoffice(Command Office)是一个由c语言编写的命令行辅助调试工具
 + 支持注册自定义命令
 + 允许服务进程同时运行
 
-它允许通过命令的形式执行特定的操作，方便快捷。库本身提供了良好的扩展性，只需注册相关的操作即可。
+它允许通过命令的形式执行特定的操作。库本身提供了良好的扩展性，只需注册相关的操作即可。
 ## 应用截图
 在系统/bin目录下生成的命令<br>
 ![image](https://user-images.githubusercontent.com/48158080/181439230-aea1bf94-3a0b-468b-9ee2-ad3a389d6295.png)
@@ -18,7 +18,7 @@ cmdoffice(Command Office)是一个由c语言编写的命令行辅助调试工具
 编程语言：c/c++、操作系统：ubuntu
 
 ## 快速上手
-cmdoffice的使用分为4步，注册命令（包括通用和自定义）、注册服务程序、启动调试工具、关闭调试工具。创建一个判断某一年是不是闰年的例子如下
+cmdoffice的使用分为4步，注册命令（包括通用和自定义）、注册服务程序、启动调试工具、关闭调试工具。创建一个__判断某一年是不是闰年__的例子如下。
 <br>导库、注册命令、服务，
 ``` c
 #include "../cmdoffice.h"
@@ -86,7 +86,8 @@ void service_ptr(int argc, char* argv[])
 }
 ```
 到此。运行效果如下<br>
-img
+![image](https://user-images.githubusercontent.com/48158080/181672622-758f81c2-7d5f-427f-bb9b-d23e4d503920.png)
+
 
 ### 注册通用命令
 cmdoffice预定义了一些通用命令，它们能够通过office_register_genneral_cmd_xxx()接口直接注册。例如注册通用命令dump，只需在上面的例子中增加一行代码即可。
@@ -125,7 +126,7 @@ typedef void (*cmd_ptr)(int argc, char* argv[]);
 ![image](https://user-images.githubusercontent.com/48158080/181438340-47260e38-c9fe-4d68-a6e5-d7c5f6bbb1e9.png)
 <br>服务进程中服务程序和命令处理程序并发执行。处理程序接收到命令后，在全局变量寻找命令入口，并发执行。命令程序发送完命令后执行自己的程序，用来接收返回参数等。
 
-## 参数收发
+## 参数收发可口说明
 ### 结构体document
 document是一次发送/接收的信息单元。对于收方，它携带了命令发送方的信息和命令的参数；对于发方，它携带命令的执行返回结果等信息。一次命令的参数一般放在argv（char*）中，不同参数间用空格分开。
 ### 接受参数
