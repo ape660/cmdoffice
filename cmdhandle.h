@@ -20,7 +20,7 @@ extern int command_count;
 extern char* commands[COMMAND_MAX];
 extern serv_ptr sptrs[COMMAND_MAX];
 extern cmd_ptr cptres[COMMAND_MAX];
-extern cmd_ptr app_service_ptr;
+
 
 extern char app_tty_path[PATHNAME_MAX];
 extern int app_proc_type;
@@ -48,7 +48,7 @@ int get_command_index(char* argv0);
 //告知服务程序目前运行的命令
 void tell_service_proc_what_cmd_is(int type, int argc, char* argv[]);
 
-//线程函数：监听消息队列
-void* thread_listen_msg(void* argv);
+//监听消息队列
+void listen_msg();
 
 #endif

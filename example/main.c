@@ -8,13 +8,14 @@ void service_ptr(int argc, char* argv[]);
 void is_leap_sptr(struct document doc);
 void is_leap_cptr(int argc, char* argv[]);
 
+
 int main(int argc, char* argv[])
 {
     office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
-    office_register_service(service_ptr);
     office_register_genneral_cmd_dump(); //通用命令dump
     office_work(argc, argv);    
 }
+
 
 void is_leap_sptr(struct document doc)
 {
@@ -50,18 +51,3 @@ void is_leap_cptr(int argc, char* argv[])
     }
 }
 
-
-void service_ptr(int argc, char* argv[])
-{
-    while(1)
-    {
-        printf("\ncalculating....\n");
-        
-        long long tmp = 0;
-        for(long i=0;i<1000000000;i++)
-        {
-            tmp += i;
-        }
-        printf("calculate completed.\n");    
-    }
-}

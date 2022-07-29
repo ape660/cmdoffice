@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 28 20:03:38 2022
+# Make data base, printed on Thu Jul 28 23:06:17 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/tcf.json","_cacheRoot":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:58502
+JOURNAL_STREAM = 8:52764
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -63,11 +63,11 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=70d751490c7d146ca8dc347862e378ad
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1763
+MANAGERPID = 1496
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -81,7 +81,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/2002,unix/ubuntu:/tmp/.ICE-unix/2002
+SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/1699,unix/ubuntu:/tmp/.ICE-unix/1699
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -89,7 +89,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 0e4ed84726e24e4f81e39a60742ddc13
+INVOCATION_ID = 27bc91c1a8c948bfab2e31feb7d9c1cd
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -107,7 +107,7 @@ PWD = /home/cmd/桌面/cmdoffice
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1966
+SSH_AGENT_PID = 1664
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -125,7 +125,7 @@ VSCODE_CODE_CACHE_PATH = /home/cmd/.config/Code/CachedData/3b889b090b5ad5793f524
 # environment
 LOGNAME = cmd
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 +F = $(notdir $+)
 # environment
@@ -201,11 +201,11 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c8a33da1_90b8_46b0_ab27_5cfd6b8413e4
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/5b5a51da_ff7f_4e63_b441_38733f742965
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.947
+GNOME_TERMINAL_SERVICE = :1.100
 # default
 SUFFIXES := 
 # environment
@@ -225,9 +225,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 8196
+VSCODE_PID = 2584
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=70d751490c7d146ca8dc347862e378ad
 # variable set hash-table stats:
 # Load=108/1024=11%, Rehash=0, Collisions=17/130=13%
 
@@ -278,9 +278,9 @@ makefile:
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
+ 
 
 # files hash-table stats:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
@@ -296,6 +296,6 @@ GNUmakefile:
 # strcache performance: lookups = 29 / hit rate = 10%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Thu Jul 28 20:03:38 2022
+# Finished Make data base on Thu Jul 28 23:06:17 2022
 
  

@@ -19,18 +19,7 @@ int office_work(int argc, char* argv[])
             office_info("创建命令软链接成功");
         }
         //监听消息队列
-        pthread_t msg_thread;
-        int ret = pthread_create(&msg_thread, NULL, thread_listen_msg, NULL);
-        if(ret != 0)
-        {
-            office_error("监听消息队列线程创建失败");
-            return -1;
-        }
-        
-        if(app_service_ptr != NULL)//运行服务程序
-        {
-            app_service_ptr(argc, argv);
-        }
+        listen_msg();
 
     }else
     {
@@ -56,10 +45,7 @@ int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr cptr)
     return 0;
 }
 
-int office_register_service(cmd_ptr service_ptr)
-{
-    app_service_ptr = service_ptr;
-}
+
 
 void office_quit()
 {

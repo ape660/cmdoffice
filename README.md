@@ -18,7 +18,7 @@ cmdoffice(Command Office)是一个由c语言编写的命令行辅助调试工具
 编程语言：c/c++、操作系统：ubuntu
 
 ## 快速上手
-cmdoffice的使用分为4步，注册命令（包括通用和自定义）、注册服务程序、启动调试工具、关闭调试工具。创建一个**判断某一年是不是闰年**的例子如下。
+cmdoffice的使用分为3步，注册命令（包括通用和自定义）、启动调试工具、关闭调试工具。创建一个**判断某一年是不是闰年**的例子如下。
 <br>导库、注册命令、服务，
 ``` c
 #include "../cmdoffice.h"
@@ -26,7 +26,6 @@ cmdoffice的使用分为4步，注册命令（包括通用和自定义）、注�
 int main(int argc, char* argv[])
 {
     office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
-    office_register_service(service_ptr);
     office_work(argc, argv);    
 }
 ```
@@ -70,20 +69,6 @@ void is_leap_cptr(int argc, char* argv[])
     }
 }
 
-void service_ptr(int argc, char* argv[])
-{
-    while(1)
-    {
-        printf("\ncalculating....\n");
-        
-        long long tmp = 0;
-        for(long i=0;i<1000000000;i++)
-        {
-            tmp += i;
-        }
-        printf("calculate completed.\n");    
-    }
-}
 ```
 到此。运行效果如下<br>
 ![image](https://user-images.githubusercontent.com/48158080/181672622-758f81c2-7d5f-427f-bb9b-d23e4d503920.png)
@@ -95,7 +80,6 @@ cmdoffice预定义了一些通用命令，它们能够通过office_register_genn
 int main(int argc, char* argv[])
 {
     office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
-    office_register_service(service_ptr);
     office_register_genneral_cmd_dump(); //通用命令dump
     office_work(argc, argv);    
 }

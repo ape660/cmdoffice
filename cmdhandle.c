@@ -18,7 +18,7 @@ int command_count = 0;
 char* commands[COMMAND_MAX];
 serv_ptr sptrs[COMMAND_MAX];
 cmd_ptr cptres[COMMAND_MAX];
-cmd_ptr app_service_ptr;
+
 char* generated_cmd_path[PATHNAME_MAX];//实际生成的命令，用于删除
 
 
@@ -161,7 +161,7 @@ void tell_service_proc_what_cmd_is(int type, int argc, char* argv[])
     office_send_doccument(pid, type, argc, argv);
 }
 
-void* thread_listen_msg(void* argv)
+void listen_msg()
 {
     struct document doc;
     while(1)
