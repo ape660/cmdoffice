@@ -53,4 +53,6 @@ void office_quit()
 {
     remove_commands();
     close_distribution_server();
+
+    office_info("资源已释放");
 }
