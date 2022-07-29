@@ -5,11 +5,12 @@
 
 
 void service_ptr(int argc, char* argv[]);
+void test_block_sptr(struct document doc);
 
 int main(int argc, char* argv[])
 {
 
-    office_register_cmd("测试",NULL, NULL);
+    office_register_cmd("测试阻塞",test_block_sptr, NULL);
 
     office_register_service(service_ptr);
     
@@ -20,6 +21,13 @@ int main(int argc, char* argv[])
     
     office_work(argc, argv);
     
+}
+
+void test_block_sptr(struct document doc)
+{
+    while(1){
+        printf("hhhh");
+    }
 }
 
 

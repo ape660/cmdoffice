@@ -2,26 +2,16 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.2.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Thu Jul 28 02:24:32 2022
- 
+# Make data base, printed on Thu Jul 28 18:19:10 2022
 
 # Variables
- 
 
- 
 # 'override' directive
 GNUMAKEFLAGS := 
 # automatic
@@ -57,7 +47,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/tcf.json","_cacheRoot":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:54296
+JOURNAL_STREAM = 8:58502
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'makefile', line 1)
@@ -73,11 +63,11 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=60f6555f3a20c8871b4d26ce62e22788
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1498
+MANAGERPID = 1763
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -91,7 +81,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/1709,unix/ubuntu:/tmp/.ICE-unix/1709
+SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/2002,unix/ubuntu:/tmp/.ICE-unix/2002
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -99,7 +89,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = d7612ac0aecf4b1fa45bd7f737478c51
+INVOCATION_ID = 0e4ed84726e24e4f81e39a60742ddc13
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -117,7 +107,7 @@ PWD = /home/cmd/桌面/cmdoffice
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1674
+SSH_AGENT_PID = 1966
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -211,11 +201,11 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/584c9698_0fce_42ff_a487_9ed776cf978a
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a74a9dbf_4ca3_4108_8f60_f2e53629a008
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.97
+GNOME_TERMINAL_SERVICE = :1.100
 # default
 SUFFIXES := 
 # environment
@@ -235,9 +225,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 3441
+VSCODE_PID = 2939
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=60f6555f3a20c8871b4d26ce62e22788
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2329ab543820d08212ec901762e33530
 # variable set hash-table stats:
 # Load=108/1024=11%, Rehash=0, Collisions=17/133=13%
 
@@ -247,9 +237,9 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=60f6555f3a20c8871b4d26c
 
 # Directories
 
-# . (device 2053, inode 533286): 19 files, no impossibilities.
+# . (device 2053, inode 533286): 20 files, no impossibilities.
 
-# 19 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -288,6 +278,7 @@ generalcmd.c:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 # Not a target:
 msgtool.c:
 #  Implicit rule search has not been done.
@@ -298,9 +289,7 @@ msgtool.c:
 makefile:
 #  Implicit rule search has been done.
 #  Last modified 2022-07-28 02:24:19.549417943
- 
 #  File has been updated.
- 
 #  Successfully updated.
 
 # Not a target:
@@ -346,9 +335,9 @@ main: main.c cmdoffice.c cmdhandle.c msgtool.c generalcmd.c sockettool.c officei
 # strcache buffers: 1 (0) / strings = 26 / storage = 252 B / avg = 9 B
 # current buf: size = 8162 B / used = 252 B / count = 26 / avg = 9 B
 
-# strcache performance: lookups = 39 / hit rate = 33%
+# strcache performance: lookups = 40 / hit rate = 35%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/39=3%
-# Finished Make data base on Thu Jul 28 02:24:32 2022
+# Load=26/8192=0%, Rehash=0, Collisions=1/40=2%
+# Finished Make data base on Thu Jul 28 18:19:10 2022
 
  

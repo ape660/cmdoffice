@@ -25,6 +25,9 @@ char* generated_cmd_path[PATHNAME_MAX];//实际生成的命令，用于删除
 //监听队列
 void* thread_listen_msg(void* argv);
 
+//并发处理每一个命令
+void* thread_deal_with_sptr(void* argv);
+
 
 void app_init(char* name)
 {
@@ -167,11 +170,17 @@ void* thread_listen_msg(void* argv)
         int ret = office_recv_document(&doc);
         if(ret != -1)
         {
-            printf("receive. argv: %s\n", doc.argv);
             if(sptrs[doc.cmd_type] != NULL)
             {
-                sptrs[doc.cmd_type](doc);
+                pthread_t sptr_thread;
+                pthread_create(&sptr_thread, NULL, thread_deal_with_sptr, (void*)&doc);
             }
         }
     }
+}
+
+void* thread_deal_with_sptr(void* argv)
+{
+    struct document doc = *(struct document*)argv;
+    sptrs[doc.cmd_type](doc);
 }

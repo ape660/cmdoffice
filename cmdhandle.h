@@ -6,6 +6,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <pthread.h>
 
 #include "msgtool.h"
 
