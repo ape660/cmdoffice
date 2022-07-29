@@ -24,6 +24,7 @@ extern cmd_ptr cptres[COMMAND_MAX];
 
 extern char app_tty_path[PATHNAME_MAX];
 extern int app_proc_type;
+extern int app_stoped; 
 
 //初始化应用信息
 void app_init(char* name);

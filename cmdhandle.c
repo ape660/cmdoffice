@@ -12,6 +12,7 @@ int app_pid;
 char app_name[PATHNAME_MAX];
 char app_tty_path[PATHNAME_MAX];
 int app_proc_type = -1;//进程的类型
+int app_stoped = 0;
 
 
 int command_count = 0;
@@ -28,13 +29,24 @@ void* thread_listen_msg(void* argv);
 //并发处理每一个命令
 void* thread_deal_with_sptr(void* argv);
 
+//处理ctrl + z信号
+void handle_ctrl_c(int sig);
+
+void handle_ctrl_c(int sig)
+{
+    if(sig == SIGINT)
+    {
+        app_stoped = 1;
+    }
+}
+
 
 void app_init(char* name)
 {
     app_pid = getpid();
     get_app_name(name);
     strcpy(app_tty_path, ttyname(1));
-
+    signal(SIGINT, handle_ctrl_c);
 }
 
 void get_app_name(char* name)
@@ -176,6 +188,7 @@ void listen_msg()
                 pthread_create(&sptr_thread, NULL, thread_deal_with_sptr, (void*)&doc);
             }
         }
+        if(app_stoped) break;
     }
 }
 

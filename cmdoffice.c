@@ -21,6 +21,8 @@ int office_work(int argc, char* argv[])
         //监听消息队列
         listen_msg();
 
+        //清除资源
+        office_quit();
     }else
     {
         tell_service_proc_what_cmd_is(cmd_index, argc, argv);
