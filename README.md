@@ -49,7 +49,7 @@ void is_leap_sptr(struct document doc)
     }
 
     //发送结果
-    //doc.self_pid保存发送过来的进程的pid,以次用来指定接收端
+    //doc.self_pid保存发送过来的进程的pid,以此来指定接收端
     //结果可以放在type里，也可以放在argv里
     office_send_doccument(doc.self_pid, is_leap, 0, NULL);
 }
@@ -126,7 +126,7 @@ typedef void (*cmd_ptr)(int argc, char* argv[]);
 ![image](https://user-images.githubusercontent.com/48158080/181438340-47260e38-c9fe-4d68-a6e5-d7c5f6bbb1e9.png)
 <br>服务进程中服务程序和命令处理程序并发执行。处理程序接收到命令后，在全局变量寻找命令入口，并发执行。命令程序发送完命令后执行自己的程序，用来接收返回参数等。
 
-## 参数收发可口说明
+## 参数收发接口说明
 ### 结构体document
 document是一次发送/接收的信息单元。对于收方，它携带了命令发送方的信息和命令的参数；对于发方，它携带命令的执行返回结果等信息。一次命令的参数一般放在argv（char*）中，不同参数间用空格分开。
 ### 接受参数
