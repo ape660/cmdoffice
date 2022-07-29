@@ -132,8 +132,6 @@ int office_send_doccument(int pid, int type,  int argc, char* argv[]);
 pid是接受方的pid，如果给发送方返回结果，则发送方的pid在doc.self_pid中。type是一个整形参数，可以携带一个整形返回值。argc是字符参数的个数，argv是所有字符参数，参数之间用空格区分。如果返回参数很多，用argv返回。
 
 ## 更多
-### 资源的正确释放
-调试工具的资源释放由office_quit()提供，根据服务程序的运行情况，应在结束时调用该函数以正确地删除命令和释放资源。
 ### 命令默认路径
 命令默认创建在系统/bin目录下
 
