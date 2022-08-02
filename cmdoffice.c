@@ -1,9 +1,15 @@
 #include "cmdoffice.h"
 
+extern void office_register_genneral_cmd_list();
+
 int office_work(int argc, char* argv[])
 {
     //初始化应用信息
     app_init(argv[0]);
+
+    //注册默认命令
+    office_register_genneral_cmd_list();//列表命令
+
     int cmd_index = get_command_index(argv[0]);
     app_proc_type = cmd_index;
     if(cmd_index == -1)//服务程序

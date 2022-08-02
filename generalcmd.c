@@ -4,14 +4,21 @@ char* general_cmd_dump = "dump";
 char* general_cmd_recovery = "recovery";
 char* general_cmd_multiple = "multiple";
 char* general_cmd_2file = "2file";
+char* general_cmd_list = "list";
 
 void sptr_of_dump(struct document doc);
 void sptr_of_recovery(struct document doc);
-void sptr_of_multiple(struct document doc);
 void sptr_of_2file(struct document doc);
 
+void sptr_of_multiple(struct document doc);
 void cptr_of_multiple(int argc, char* argv[]);
 
+void cptr_of_list(int argc, char* argv[]);
+
+void office_register_genneral_cmd_list()
+{
+    office_register_cmd(general_cmd_list, NULL, cptr_of_list);
+}
 
 void office_register_genneral_cmd_dump()
 {
@@ -128,4 +135,14 @@ void sptr_of_2file(struct document doc)
     }
     office_info("信息将重定向到文件");
     dup2(fd, STDOUT_FILENO); 
+}
+
+void cptr_of_list(int argc, char* argv[])
+{
+    printf("Supported Commands As Follow\n");
+    for(int i=0;i<command_count;i++)
+    {
+        printf("%d. %s\n", i+1, commands[i]);
+
+    }
 }

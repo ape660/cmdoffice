@@ -9,8 +9,6 @@
 #include "officeio.h"
 
 
-
-
 //打开通用命令dump
 void office_register_genneral_cmd_dump();
 

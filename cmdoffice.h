@@ -9,6 +9,8 @@
 #include "sockettool.h"
 #include "officeio.h"
 
+#include "generalcmd.h"
+
 //启动调试工具
 int office_work(int argc, char* argv[]);
 
