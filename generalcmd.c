@@ -36,9 +36,9 @@ void sptr_of_dump(struct document doc)
     if(fd < 0){
         return ;
     }
-    office_info("消息输出将重定向");
+    office_info("The information output is redirected.");
     dup2(fd, STDOUT_FILENO); 
-    office_info("消息重定向至此");
+    office_info("The information is redirected here.");
 }
 
 void office_register_genneral_cmd_recovery()
@@ -54,9 +54,9 @@ void sptr_of_recovery(struct document doc){
 
         return ;
     }
-    office_info("消息输出恢复");
+    office_info("Information output recovery.");
     dup2(fd, STDOUT_FILENO); 
-    office_info("消息输出已恢复");
+    office_info("Message output has been resumed.");
 }
 
 
@@ -73,7 +73,7 @@ void sptr_of_multiple(struct document doc)
         int ret  = build_distribution_server();    
         if(ret <0)
         {
-            office_error("建立分发服务器失败");
+            office_error("Failed to set up the distributor.");
         }
         
     }
@@ -91,7 +91,7 @@ void sptr_of_multiple(struct document doc)
 void cptr_of_multiple(int argc, char* argv[])
 {
     struct document doc;
-    office_info("加载中");
+    office_info("Loading...");
     office_recv_document(&doc);
 
     int client_fd  = create_tcp_client(doc.type);
@@ -133,7 +133,7 @@ void sptr_of_2file(struct document doc)
         perror("");
         return ;
     }
-    office_info("信息将重定向到文件");
+    office_info("The information is redirected to the file.");
     dup2(fd, STDOUT_FILENO); 
 }
 

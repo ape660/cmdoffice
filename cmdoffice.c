@@ -18,11 +18,11 @@ int office_work(int argc, char* argv[])
         //创建命令
         if(create_commands()< 0)
         {
-            office_error("创建命令软连接失败");
+            office_error("Failed to create symbolic links.");
             return -1;
         }else
         {
-            office_info("创建命令软链接成功");
+            office_info("Succeeded in creating symbolic links.");
         }
         //监听消息队列
         listen_msg();
@@ -60,5 +60,5 @@ void office_quit()
     remove_commands();
     close_distribution_server();
 
-    office_info("资源已释放");
+    office_info("Resources have been released.");
 }

@@ -122,7 +122,7 @@ void get_current_time(char *str_time)
     struct tm *p;
     p = gmtime(&timep);
 
-    snprintf(str_time, 30, "%d月%d日%d时%d分%d秒", 1 + p->tm_mon, p->tm_mday, 8 + p->tm_hour, p->tm_min, p->tm_sec);
+    snprintf(str_time, 30, "%d_%d_%dh%dm%ds", 1 + p->tm_mon, p->tm_mday, 8 + p->tm_hour, p->tm_min, p->tm_sec);
 }
 
 //删除命令

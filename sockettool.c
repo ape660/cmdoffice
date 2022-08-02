@@ -169,7 +169,7 @@ int build_distribution_server()
         return -1;
     }
     first_socket = clientfd;
-    office_info("建立分发服务器成功");
+    office_info("Setting up the distributor succeeded.");
     cancel_buffer(clientfd);
 }
 
