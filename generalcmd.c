@@ -63,22 +63,32 @@ void sptr_of_multiple(struct document doc)
     int pid = doc.self_pid;
     if(cur_port == -1)
     {
-        build_distribution_server();    
+        int ret  = build_distribution_server();    
+        if(ret <0)
+        {
+            office_error("建立分发服务器失败");
+        }
+        
     }
     
     sleep(1);
-    office_info("消息将重定向");
-    dup2(first_socket, STDOUT_FILENO);
-    
+
+    dup2(first_socket, 1);
+
     //发送端口给连接上的客户端
     office_send_doccument(pid, cur_port, 0, NULL);  
+
+
 }
 
 void cptr_of_multiple(int argc, char* argv[])
 {
     struct document doc;
+    office_info("加载中");
     office_recv_document(&doc);
+
     int client_fd  = create_tcp_client(doc.type);
+
     char buf[BUFSIZ];//定义一个数组用来存储接收到的数据 
     int ret; 
     while (1) 

@@ -180,6 +180,7 @@ void listen_msg()
     {
         
         int ret = office_recv_document(&doc);
+        
         if(ret != -1)
         {
             if(sptrs[doc.type] != NULL)

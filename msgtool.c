@@ -2,10 +2,7 @@
 
 const int msg_key =2233;
 
-int office_send_doccument
-(
-    int pid, int type,  int argc, char* argv[]
-)
+int office_send_doccument(int pid, int type,  int argc, char* argv[])
 {
     //访问消息队列（不存在则创建）
 	int msgid = msgget(msg_key, 0666 | IPC_CREAT);
@@ -13,13 +10,20 @@ int office_send_doccument
 	{
 		return -1;
 	}
-    
+
     //打包数据	
     struct document doc;
     doc.msg_type = pid;//指定目标程序   
+
     doc.type = type;
+
     doc.self_pid = getpid();
-    strcpy(doc.tty_path, ttyname(1));
+
+    
+    strcpy(doc.tty_path, app_tty_path);
+
+
+    fflush(stderr);
     for(int i=0;i<argc ;i++)
     {
         strcat(doc.argv, argv[i]);
@@ -29,13 +33,15 @@ int office_send_doccument
         }
     }
 
+
+    fflush(stderr);
     //向队列发送数据
     if(msgsnd(msgid, (void*)&doc, MSGMAX, 0) == -1)
     {
         return -1;
     }
 
-
+    
     return 0;
 }
 

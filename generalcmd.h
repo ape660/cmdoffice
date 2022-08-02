@@ -6,6 +6,9 @@
 #include "cmdoffice.h"
 #include "sockettool.h"
 #include "msgtool.h"
+#include "officeio.h"
+
+
 
 
 //打开通用命令dump

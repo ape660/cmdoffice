@@ -19,7 +19,7 @@ int get_available_port();
 void cancel_buffer(int clientfd);
 
 //建立一个tcp服务器
-void build_tcp_server();
+int build_tcp_server();
 
 //服务器监听连接
 void * thread_server_listen(void *param);
@@ -78,14 +78,14 @@ void * thread_server_listen(void *param)
     }
 }
 
-void build_tcp_server()
+int build_tcp_server()
 {
     cur_port = get_available_port();
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);//创建套接字 
     server_socket = server_fd;
     if (server_fd < 0) 
     { 
-        return;
+        return -1; 
     } //创建失败的错误处理 
 
     struct sockaddr_in myaddr; //创建“我的地址”结构体 
@@ -96,13 +96,13 @@ void build_tcp_server()
 
     if (0 > bind(server_fd, (struct sockaddr*)&myaddr, sizeof(myaddr)))//绑定套接字 
     { 
-        return ;
+        return -1;
     } 
 
 
     if (0 > listen(server_fd, 8))//调用listen对指定端口进行监听 
     { 
-        return ;
+        return -1;
     } 
 
     //服务器监听线程
@@ -110,6 +110,8 @@ void build_tcp_server()
     pthread_create(&server_thread, NULL, thread_server_listen, (void *)&server_fd);
     
     sleep(1); //让服务器监听线程运行
+
+    return 0;
 }
 
 int get_available_port()
@@ -151,14 +153,23 @@ void cancel_buffer(int clientfd)
     setvbuf(stdout, NULL, _IONBF, 0);
 }
 
-void build_distribution_server()
+int build_distribution_server()
 {
-    build_tcp_server();
+    int ret = build_tcp_server();
+    if(ret < 0)
+    {
+        return -1;
+    }
     
     //创建第一个客户端
     int clientfd = create_tcp_client(cur_port);
+
+    if(clientfd <0 )
+    {
+        return -1;
+    }
     first_socket = clientfd;
-    printf("buidld success\n");
+    office_info("建立分发服务器成功");
     cancel_buffer(clientfd);
 }
 

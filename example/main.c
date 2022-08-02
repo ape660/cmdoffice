@@ -7,12 +7,19 @@
 void service_ptr(int argc, char* argv[]);
 void is_leap_sptr(struct document doc);
 void is_leap_cptr(int argc, char* argv[]);
+void output_debug_info(struct document doc);
 
 
 int main(int argc, char* argv[])
 {
     office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
+    office_register_cmd("输出调试信息", output_debug_info, NULL);
+
     office_register_genneral_cmd_dump(); //通用命令dump
+    office_register_genneral_cmd_recovery();//重定向恢复
+    office_register_genneral_cmd_2file();
+    office_register_genneral_cmd_multiple();
+
     office_work(argc, argv);    
 }
 
@@ -51,3 +58,24 @@ void is_leap_cptr(int argc, char* argv[])
     }
 }
 
+void output_debug_info(struct document doc)
+{
+    char* simulation_info[] = 
+    {
+        "Displaying notes found in: .note.ABI-tag", 
+        "Owner                 Data size	Description",
+        "GNU                  0x00000010	NT_GNU_ABI_TAG (ABI version tag)",
+        "OS: Linux, ABI: 3.2.0",
+        "",
+        "Displaying notes found in: .note.gnu.build-id",
+        "Owner                 Data size	Description",
+        "GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)",
+        "Build ID: 536cc8d42fa3ed672abc427d4a683313fb902b6b"
+    };
+    int c = 0;
+    while(1)
+    {
+        printf("%s\n", simulation_info[c]);
+        c = (c+1)%9;
+    }
+}

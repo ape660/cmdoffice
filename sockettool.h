@@ -9,12 +9,13 @@
 #include <pthread.h>
 
 #include "msgtool.h"
+#include "officeio.h"
 
 extern int cur_port;
 extern int first_socket;
 
 //建立分发服务器
-void build_distribution_server();
+int build_distribution_server();
 
 //关闭分发服务器，自己判断宣布需要关
 void close_distribution_server();

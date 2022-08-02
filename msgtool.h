@@ -12,6 +12,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define PATHNAME_MAX 4096
+
+extern char app_tty_path[PATHNAME_MAX];
 
 extern const int msg_key;
 
