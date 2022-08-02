@@ -47,6 +47,7 @@ void app_init(char* name)
     get_app_name(name);
     strcpy(app_tty_path, ttyname(1));
     signal(SIGINT, handle_ctrl_c);
+    signal(SIGPIPE, SIG_IGN);//防止客户端退出，服务器就关闭
 }
 
 void get_app_name(char* name)

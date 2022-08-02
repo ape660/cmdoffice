@@ -98,22 +98,25 @@ void cptr_of_multiple(int argc, char* argv[])
 
     char buf[BUFSIZ];//定义一个数组用来存储接收到的数据 
     int ret; 
-    while (1) 
+    while (1) //执行while循环读取数据，当 
     { 
         memset(buf, 0, sizeof(buf)); 
         ret = read(client_fd, buf, sizeof(buf)); 
         if (0 > ret) 
         { 
             break; 
-        }//执行while循环读取数据，当 
+        }
         else if (0 == ret) 
         { 
             break; 
         } 
+        
         printf("%s", buf);
+        if(app_stoped) break;
     }
-
-    close(client_fd); 
+    
+    // close(client_fd); 
+    shutdown(client_fd, SHUT_RDWR);
 }
 
 void office_register_genneral_cmd_2file()

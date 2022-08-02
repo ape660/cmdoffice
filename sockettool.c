@@ -35,7 +35,7 @@ void* thread_handle_data(void *param)
     int connfd = *(int*)param;
     char buf[BUFSIZ];//定义一个数组用来存储接收到的数据 
     int ret; 
-    while (1) 
+    while (1) //执行while循环读取数据，当 
     { 
         memset(buf, 0, sizeof(buf)); 
         //read block
@@ -43,7 +43,7 @@ void* thread_handle_data(void *param)
         if (0 > ret) 
         { 
             break; 
-        }//执行while循环读取数据，当 
+        }
         else if (0 == ret) 
         { 
             socket_disconnect(connfd);
@@ -175,6 +175,8 @@ int build_distribution_server()
 
 void socket_disconnect(int connfd)
 {
+    perror("\ndisconnnect.\n");
+    fflush(stderr);
     int index = -1;
     for(int i=0;i<h_sockets_size;i++)
     {
@@ -191,6 +193,8 @@ void socket_disconnect(int connfd)
         //如果只剩一个客户端（第一个客户端），则重定向回原tty
         if(h_sockets_size == 1)
         {
+            perror("\nrecover.\n");
+            fflush(stderr);
             struct document doc; //仅传递参数需要
             sptr_of_recovery(doc);
         }     
@@ -224,9 +228,9 @@ void close_distribution_server()
     {
         for(int i=0;i<h_sockets_size;i++)
         {
-            close(h_sockets[i]);
+            shutdown(h_sockets[i], SHUT_RDWR);
         }
-        close(server_socket);
+        shutdown(server_socket, SHUT_RDWR);
         h_sockets_size = 0;
         cur_port = -1;
         server_socket = -1;
