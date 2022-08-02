@@ -175,7 +175,7 @@ int build_distribution_server()
 
 void socket_disconnect(int connfd)
 {
-    perror("\ndisconnnect.\n");
+
     fflush(stderr);
     int index = -1;
     for(int i=0;i<h_sockets_size;i++)
@@ -193,7 +193,7 @@ void socket_disconnect(int connfd)
         //如果只剩一个客户端（第一个客户端），则重定向回原tty
         if(h_sockets_size == 1)
         {
-            perror("\nrecover.\n");
+
             fflush(stderr);
             struct document doc; //仅传递参数需要
             sptr_of_recovery(doc);
