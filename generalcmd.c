@@ -116,7 +116,7 @@ void cptr_of_multiple(int argc, char* argv[])
     }
     
     // close(client_fd); 
-    shutdown(client_fd, SHUT_RDWR);
+    shutdown(client_fd, SHUT_RDWR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               );
 }
 
 void office_register_genneral_cmd_2file()

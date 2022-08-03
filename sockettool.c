@@ -195,7 +195,6 @@ void socket_disconnect(int connfd)
             struct document doc; //仅传递参数需要
             sptr_of_recovery(doc);
         }     
-        
     } 
 }
 
