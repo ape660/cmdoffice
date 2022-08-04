@@ -197,5 +197,8 @@ void listen_msg()
 void* thread_deal_with_sptr(void* argv)
 {
     struct document doc = *(struct document*)argv;
-    sptrs[doc.type](doc);
+    if(doc.type>=0 && doc.type<command_count)
+    {
+        sptrs[doc.type](doc);
+    }
 }

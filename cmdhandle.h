@@ -11,9 +11,6 @@
 #include "msgtool.h"
 
 
-
-
-
 #define PATHNAME_MAX 4096 //linux最大组合路径长度
 #define COMMAND_MAX 100 //最多支持命令数
 
@@ -29,6 +26,7 @@ extern cmd_ptr cptres[COMMAND_MAX];
 extern char app_tty_path[PATHNAME_MAX];
 extern int app_proc_type;
 extern int app_stoped; 
+extern int app_pid;
 
 //初始化应用信息
 void app_init(char* name);

@@ -1,6 +1,7 @@
 #include "cmdoffice.h"
 
-extern void office_register_genneral_cmd_list();
+extern void register_general_cmd_list();
+extern void register_general_cmd_shutdown();
 
 int office_work(int argc, char* argv[])
 {
@@ -8,7 +9,8 @@ int office_work(int argc, char* argv[])
     app_init(argv[0]);
 
     //注册默认命令
-    office_register_genneral_cmd_list();//列表命令
+    register_general_cmd_list();//列表命令
+    register_general_cmd_shutdown();//关闭命令
 
     int cmd_index = get_command_index(argv[0]);
     app_proc_type = cmd_index;
@@ -26,7 +28,6 @@ int office_work(int argc, char* argv[])
         }
         //监听消息队列
         listen_msg();
-
         //清除资源
         office_quit();
     }else

@@ -5,6 +5,7 @@ char* general_cmd_recovery = "recovery";
 char* general_cmd_multiple = "multiple";
 char* general_cmd_2file = "2file";
 char* general_cmd_list = "list";
+char* general_cmd_shutdown = "shutdown";
 
 void sptr_of_dump(struct document doc);
 void sptr_of_recovery(struct document doc);
@@ -15,14 +16,28 @@ void cptr_of_multiple(int argc, char* argv[]);
 
 void cptr_of_list(int argc, char* argv[]);
 
-void office_register_genneral_cmd_list()
+void sptr_of_shutdown(struct document doc);
+
+void register_general_cmd_list()
 {
     office_register_cmd(general_cmd_list, NULL, cptr_of_list);
+}
+
+void register_general_cmd_shutdown()
+{
+    office_register_cmd(general_cmd_shutdown, sptr_of_shutdown, NULL);
 }
 
 void office_register_genneral_cmd_dump()
 {
     office_register_cmd(general_cmd_dump, sptr_of_dump, NULL);
+}
+
+void sptr_of_shutdown(struct document doc)
+{
+    app_stoped = 1;
+
+    office_send_doccument(app_pid, -1, 0, NULL);
 }
 
 void sptr_of_dump(struct document doc)
