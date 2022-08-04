@@ -1,9 +1,23 @@
-TARGET = main
-CC = gcc
+SOURCES = $(wildcard *.c ../*.c)
+OBJS := $(patsubst %.c,%.o, $(SOURCES))
 
-$(TARGET): main.c ../cmdoffice.c ../cmdhandle.c ../msgtool.c ../generalcmd.c ../sockettool.c ../officeio.c
-	@$(CC) -g $^ -lpthread -o $@
+CC = gcc
+TARGET = main
+ 
+all: main
+ 
+%.d: %.c
+	@set -e; rm -f $@; \
+	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+ 
+include $(SOURCES:.c=.d)
+ 
+$(TARGET):$(OBJS) $(SOURCES)
+	@$(CC) -o  $(TARGET) $(OBJS) -lpthread
+	@rm -f *.o  *.d ../*.o ../*.d
 
 .PHONY : clean
 clean:
-	@rm -f $(TARGET)
+	@rm -f *.o $(TARGET) *.d ../*.o ../*.d
