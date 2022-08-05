@@ -19,6 +19,7 @@ int command_count = 0;
 char* commands[COMMAND_MAX];
 serv_ptr sptrs[COMMAND_MAX];
 cmd_ptr cptres[COMMAND_MAX];
+cmd_ptr arg_detect_ptrs[COMMAND_MAX];
 
 char* generated_cmd_path[PATHNAME_MAX];//实际生成的命令，用于删除
 

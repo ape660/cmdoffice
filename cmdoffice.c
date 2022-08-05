@@ -32,16 +32,34 @@ int office_work(int argc, char* argv[])
         office_quit();
     }else
     {
-        tell_service_proc_what_cmd_is(cmd_index, argc, argv);
-        if(cptres[cmd_index] != NULL)
+        if(arg_detect_ptrs[cmd_index] != NULL)
         {
-            cptres[cmd_index](argc, argv);
+            int arg_allow = arg_detect_ptrs[cmd_index](argc, argv);
+            if(arg_allow == 0)
+            {
+                tell_service_proc_what_cmd_is(cmd_index, argc, argv);
+                if(cptres[cmd_index] != NULL)
+                {
+                    cptres[cmd_index](argc, argv);
+                }
+            }else
+            {
+                office_info("参数有误");
+            }
+        }else
+        {
+            tell_service_proc_what_cmd_is(cmd_index, argc, argv);
+            if(cptres[cmd_index] != NULL)
+            {
+                cptres[cmd_index](argc, argv);
+            }
         }
+
     }
     return 0;
 }
 
-int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr cptr)
+int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr arg_detect_ptr, cmd_ptr cptr)
 {
     
     if(command_count == COMMAND_MAX){
@@ -49,6 +67,7 @@ int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr cptr)
     }
     commands[command_count]= cmd_name;
     sptrs[command_count] = sptr;
+    arg_detect_ptrs[command_count] = arg_detect_ptr;
     cptres[command_count++] = cptr;
     
     return 0;

@@ -12,25 +12,25 @@ void sptr_of_recovery(struct document doc);
 void sptr_of_2file(struct document doc);
 
 void sptr_of_multiple(struct document doc);
-void cptr_of_multiple(int argc, char* argv[]);
+int cptr_of_multiple(int argc, char* argv[]);
 
-void cptr_of_list(int argc, char* argv[]);
+int cptr_of_list(int argc, char* argv[]);
 
 void sptr_of_shutdown(struct document doc);
 
 void register_general_cmd_list()
 {
-    office_register_cmd(general_cmd_list, NULL, cptr_of_list);
+    office_register_cmd(general_cmd_list, NULL,NULL, cptr_of_list);
 }
 
 void register_general_cmd_shutdown()
 {
-    office_register_cmd(general_cmd_shutdown, sptr_of_shutdown, NULL);
+    office_register_cmd(general_cmd_shutdown, sptr_of_shutdown,NULL, NULL);
 }
 
 void office_register_genneral_cmd_dump()
 {
-    office_register_cmd(general_cmd_dump, sptr_of_dump, NULL);
+    office_register_cmd(general_cmd_dump, sptr_of_dump,NULL,  NULL);
 }
 
 void sptr_of_shutdown(struct document doc)
@@ -58,7 +58,7 @@ void sptr_of_dump(struct document doc)
 
 void office_register_genneral_cmd_recovery()
 {
-    office_register_cmd(general_cmd_recovery, sptr_of_recovery, NULL);
+    office_register_cmd(general_cmd_recovery, sptr_of_recovery,NULL, NULL);
 }
 
 void sptr_of_recovery(struct document doc){
@@ -77,7 +77,7 @@ void sptr_of_recovery(struct document doc){
 
 void office_register_genneral_cmd_multiple()
 {
-    office_register_cmd(general_cmd_multiple, sptr_of_multiple, cptr_of_multiple);
+    office_register_cmd(general_cmd_multiple, sptr_of_multiple,NULL, cptr_of_multiple);
 }
 
 void sptr_of_multiple(struct document doc)
@@ -103,7 +103,7 @@ void sptr_of_multiple(struct document doc)
 
 }
 
-void cptr_of_multiple(int argc, char* argv[])
+int cptr_of_multiple(int argc, char* argv[])
 {
     struct document doc;
     office_info("Loading...");
@@ -131,13 +131,16 @@ void cptr_of_multiple(int argc, char* argv[])
     }
     
     // close(client_fd); 
-    shutdown(client_fd, SHUT_RDWR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               );
+    shutdown(client_fd, SHUT_RDWR);
+    return 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 }
 
 void office_register_genneral_cmd_2file()
 {
-    office_register_cmd(general_cmd_2file, sptr_of_2file, NULL);
+    office_register_cmd(general_cmd_2file, sptr_of_2file, NULL,NULL);
 }
+
+
 
 void sptr_of_2file(struct document doc)
 {
@@ -155,7 +158,7 @@ void sptr_of_2file(struct document doc)
     dup2(fd, STDOUT_FILENO); 
 }
 
-void cptr_of_list(int argc, char* argv[])
+int cptr_of_list(int argc, char* argv[])
 {
     printf("Supported Commands As Follow\n");
     for(int i=0;i<command_count;i++)
@@ -163,4 +166,5 @@ void cptr_of_list(int argc, char* argv[])
         printf("%d. %s\n", i+1, commands[i]);
 
     }
+    return 0;
 }

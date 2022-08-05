@@ -15,12 +15,13 @@
 #define COMMAND_MAX 100 //最多支持命令数
 
 typedef void (*serv_ptr)(struct document doc);
-typedef void (*cmd_ptr)(int argc, char* argv[]);
+typedef int (*cmd_ptr)(int argc, char* argv[]);
 
 extern int command_count;
 extern char* commands[COMMAND_MAX];
 extern serv_ptr sptrs[COMMAND_MAX];
 extern cmd_ptr cptres[COMMAND_MAX];
+extern cmd_ptr arg_detect_ptrs[COMMAND_MAX];
 
 
 extern char app_tty_path[PATHNAME_MAX];

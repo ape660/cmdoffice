@@ -6,14 +6,15 @@
 
 void service_ptr(int argc, char* argv[]);
 void is_leap_sptr(struct document doc);
-void is_leap_cptr(int argc, char* argv[]);
+int is_leap_cptr(int argc, char* argv[]);
 void output_debug_info(struct document doc);
 
+int detect_ptr_of_year(int argc, char* argv[]);
 
 int main(int argc, char* argv[])
 {
-    office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
-    office_register_cmd("输出调试信息", output_debug_info, NULL);
+    office_register_cmd("是不是闰年",is_leap_sptr,detect_ptr_of_year, is_leap_cptr);
+    office_register_cmd("输出调试信息", output_debug_info, NULL, NULL);
 
     office_register_genneral_cmd_dump(); //通用命令dump
     office_register_genneral_cmd_recovery();//重定向恢复
@@ -42,7 +43,7 @@ void is_leap_sptr(struct document doc)
     office_send_doccument(doc.self_pid, is_leap, 0, NULL);
 }
 
-void is_leap_cptr(int argc, char* argv[])
+int is_leap_cptr(int argc, char* argv[])
 {
     //接受返回结果
     struct document doc;
@@ -55,6 +56,18 @@ void is_leap_cptr(int argc, char* argv[])
     else
     {
         printf("%s 不是闰年\n", argv[1]);
+    }
+}
+
+int detect_ptr_of_year(int argc, char* argv[])
+{
+    if(argc  == 1) return -1;
+    if(strspn(argv[1], "0123456789") == strlen(argv[1]))
+    {
+        return 0;
+    }else
+    {
+        return -1;
     }
 }
 

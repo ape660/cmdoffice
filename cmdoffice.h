@@ -16,7 +16,7 @@ int office_work(int argc, char* argv[]);
 
 //注册命令
 
-int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr cptr);
+int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr arg_detect_ptr, cmd_ptr cptr);
 
 //关闭调试工具
 void office_quit();
