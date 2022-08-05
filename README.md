@@ -16,25 +16,25 @@ cmdoffice(Command Office)是一个由c语言编写的命令行辅助调试工具
 
 
 ## 运行环境
-编程语言：c/c++、操作系统：ubuntu
+编程语言：c语言，操作系统：ubuntu
 
 ## 快速上手
-cmdoffice的使用分为3步，注册命令（包括通用和自定义）、启动调试工具、关闭调试工具。创建一个**判断某一年是不是闰年**的例子如下。
-<br>导库、注册命令、服务，
+cmdoffice的使用有2步，注册命令（包括通用和自定义）、启动调试工具。创建一个**判断某一年是不是闰年**的例子如下。
+<br>首先导库、注册命令，
 ``` c
 #include "../cmdoffice.h"
 
 int main(int argc, char* argv[])
 {
-    office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
+    office_register_cmd("是不是闰年",is_leap_sptr,detect_ptr_of_year, is_leap_cptr);
     office_work(argc, argv);    
 }
 ```
-并对两者进行实现。
+并对三个指针进行实现。第1个指针指定服务程序受到命令后的处理动作；第2个指针用于检验该命令的参数的有效性；第3个指针为命令程序后续的动作。
 ``` c
-void service_ptr(int argc, char* argv[]);
 void is_leap_sptr(struct document doc);
-void is_leap_cptr(int argc, char* argv[]);
+int is_leap_cptr(int argc, char* argv[]);
+int detect_ptr_of_year(int argc, char* argv[]);
 
 void is_leap_sptr(struct document doc)
 {
@@ -49,12 +49,12 @@ void is_leap_sptr(struct document doc)
     }
 
     //发送结果
-    //doc.self_pid保存发送过来的进程的pid,以此来指定接收端
+    //doc.self_pid保存发送过来的进程的pid,以次用来指定接收端
     //结果可以放在type里，也可以放在argv里
     office_send_doccument(doc.self_pid, is_leap, 0, NULL);
 }
 
-void is_leap_cptr(int argc, char* argv[])
+int is_leap_cptr(int argc, char* argv[])
 {
     //接受返回结果
     struct document doc;
@@ -70,6 +70,18 @@ void is_leap_cptr(int argc, char* argv[])
     }
 }
 
+int detect_ptr_of_year(int argc, char* argv[])
+{
+    if(argc  == 1) return -1;
+    if(strspn(argv[1], "0123456789") == strlen(argv[1]))
+    {
+        return 0;
+    }else
+    {
+        return -1;
+    }
+}
+
 ```
 到此。运行效果如下<br>
 ![image](https://user-images.githubusercontent.com/48158080/181672622-758f81c2-7d5f-427f-bb9b-d23e4d503920.png)
@@ -80,7 +92,7 @@ cmdoffice预定义了一些通用命令，它们能够通过office_register_genn
 ``` c
 int main(int argc, char* argv[])
 {
-    office_register_cmd("是不是闰年",is_leap_sptr, is_leap_cptr);
+    office_register_cmd("是不是闰年",is_leap_sptr,detect_ptr_of_year, is_leap_cptr);
     office_register_genneral_cmd_dump(); //通用命令dump
     office_work(argc, argv);    
 }
@@ -99,16 +111,16 @@ int main(int argc, char* argv[])
 ## 注册自定义命令接口说明
 注册命令使用接口
 ``` c
-int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr cptr)
+int office_register_cmd(char* cmd_name, serv_ptr sptr, cmd_ptr arg_detect_ptr, cmd_ptr cptr);
 ```
-第1个参数cmd_name是命令的名称；第2个参数serv_ptr是服务端收到来自消息队列的命令的处理入口。服务程序收到命令户，将调用此函数。serv_ptr的原型如下
+第1个参数cmd_name是命令的名称；第2个参数serv_ptr是服务端收到来自消息队列的命令的处理入口。第3个参数是命令参数检测入口。第4个参数是服务程序入口。服务程序收到命令户，将调用此函数。serv_ptr的原型如下
 ``` c
 typedef void (*serv_ptr)(struct document doc);
 ```
 它接收一个document作为参数，携带命令所需的参数。第3个参数cmd_ptr指向命令进程要运行的代码段的入口。它的原型是
 
 ``` c
-typedef void (*cmd_ptr)(int argc, char* argv[]);
+typedef int (*cmd_ptr)(int argc, char* argv[]);
 ``` 
 要注册一个自定义命令，需要定义该命令的处理函数和命令进程要运行的代码段。如果有一方无需作处理，传入NULL被允许。他们的调用过程见下图<br>
 ![image](https://user-images.githubusercontent.com/48158080/181724764-4c52403f-fc38-4bdf-9d1c-baa192a7adaf.png)
@@ -134,7 +146,7 @@ int office_recv_document(struct document *doc);
 ``` c
 int office_send_doccument(int pid, int type,  int argc, char* argv[]);
 ``` 
-pid是接受方的pid，如果给发送方返回结果，则发送方的pid在doc.self_pid中。type是一个整形参数，可以携带一个整形返回值。argc是字符参数的个数，argv是所有字符参数，参数之间用空格区分。如果返回参数很多，用argv返回。
+pid是接受方的pid，如果给发送方返回结果，则发送方的pid在doc.self_pid中。type是一个整形参数，可以携带一个整形返回值。argc是字符参数的个数，argv是所有字符参数，参数之间用空格区分。如果返回参数很多，用argv返回。如果命令程序和服务程序多次收发，应该加锁。否则为可能会被listen_msg错误收到。
 
 ## 更多
 ### 命令默认路径

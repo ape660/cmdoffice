@@ -4,7 +4,6 @@
 #include "../generalcmd.h"
 
 
-void service_ptr(int argc, char* argv[]);
 void is_leap_sptr(struct document doc);
 int is_leap_cptr(int argc, char* argv[]);
 void output_debug_info(struct document doc);

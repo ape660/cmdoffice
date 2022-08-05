@@ -2,13 +2,16 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.2.1
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  4 18:28:26 2022
+# Make data base, printed on Fri Aug  5 00:26:35 2022
 
 # Variables
 
@@ -233,6 +236,7 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=b82c0d9bc2ea98357c7e188
 
 # Pattern-specific Variable Values
 
+ 
 # No pattern-specific variable values.
 
 # Directories
@@ -278,7 +282,6 @@ makefile:
 GNUmakefile:
 #  Implicit rule search has been done.
 #  File does not exist.
- 
 #  File has been updated.
 #  Failed to be updated.
 
@@ -296,6 +299,6 @@ GNUmakefile:
 # strcache performance: lookups = 29 / hit rate = 10%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Thu Aug  4 18:28:26 2022
+# Finished Make data base on Fri Aug  5 00:26:35 2022
 
  
