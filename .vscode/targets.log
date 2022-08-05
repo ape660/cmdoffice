@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  4 01:37:38 2022
+# Make data base, printed on Thu Aug  4 18:28:26 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1d735750dbb1b9066c7513078396ba0f.zh-cn","_translationsConfigFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/tcf.json","_cacheRoot":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/cmd/.config/Code/clp/1d735750dbb1b9066c7513078396ba0f.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:53452
+JOURNAL_STREAM = 8:53174
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -63,11 +63,11 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=d92ed3f5f6909dc35ee2d8d062e9cc4c
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=b82c0d9bc2ea98357c7e188562ec6ea0
 # environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1486
+MANAGERPID = 1497
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -81,7 +81,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/1689,unix/ubuntu:/tmp/.ICE-unix/1689
+SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/1703,unix/ubuntu:/tmp/.ICE-unix/1703
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -89,7 +89,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = c77c2a6e1e93487c8689dc43716417b1
+INVOCATION_ID = 72af486996a14ac3aae5a7493701f0a2
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -107,7 +107,7 @@ PWD = /home/cmd/桌面/cmdoffice/cmdoffice
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1654
+SSH_AGENT_PID = 1668
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -125,7 +125,7 @@ VSCODE_CODE_CACHE_PATH = /home/cmd/.config/Code/CachedData/3b889b090b5ad5793f524
 # environment
 LOGNAME = cmd
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 +F = $(notdir $+)
 # environment
@@ -201,11 +201,11 @@ LC_ALL = C
 # environment
 DBUS_STARTER_BUS_TYPE = session
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a93f5d5e_9989_4243_a606_1796634e4ad5
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e822fcec_6b4a_43b1_a00c_1e5a5e432357
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.115
+GNOME_TERMINAL_SERVICE = :1.99
 # default
 SUFFIXES := 
 # environment
@@ -225,9 +225,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 3177
+VSCODE_PID = 4305
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=d92ed3f5f6909dc35ee2d8d062e9cc4c
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=b82c0d9bc2ea98357c7e188562ec6ea0
 # variable set hash-table stats:
 # Load=108/1024=11%, Rehash=0, Collisions=17/130=13%
 
@@ -296,6 +296,6 @@ GNUmakefile:
 # strcache performance: lookups = 29 / hit rate = 10%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Thu Aug  4 01:37:38 2022
+# Finished Make data base on Thu Aug  4 18:28:26 2022
 
  

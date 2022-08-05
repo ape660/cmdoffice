@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/cmd/桌面/cmdoffice/cmdoffice'
 make: Leaving directory '/home/cmd/桌面/cmdoffice/cmdoffice'
  
